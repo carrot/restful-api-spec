@@ -1,5 +1,7 @@
 # Building RESTful APIs
 
+[![Version](https://img.shields.io/github/release/carrot/restful-api-spec.svg?style=flat-square)](https://github.com/carrot/restful-api-spec/releases)
+
 In the development of a project, an API is often the first code that gets written.  The success of the API can have a large influence on the success of all of the clients who consume it (iOS/Android/Web).  From that statement alone it is clear that building a great API is intrinsic to building a successful project.
 
 We have created this document to outline both the development lifecycle and the standards we try to adhere to at Carrot when building a RESTful API.
