@@ -265,3 +265,7 @@ As an API developer, it is your responsibility to know when you introduce a brea
 Use appropriate [HTTP Status Codes](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) for errors.
 
 Actually throw the HTTP error appropriately and also stuff it into the `status_code` field in the base interface.
+
+## License
+
+[MIT](/LICENSE.md)
