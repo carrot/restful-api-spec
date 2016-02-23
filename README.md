@@ -59,6 +59,89 @@ Interface models are the models as they will be represented in the API request.
 
 Interface models aren't always exactly the same as the database models, so it's equally as important to spec these out.  These should be spec'ed out by the API team, and then also be brought to a meeting between the API + client side teams.  It's likely that this will be the same meeting that the database models are discussed.
 
+It's also worth noting that interface models should always be referenced as the plural form of the model.
+
+## Determine Interface Model Types
+
+In a RESTful API, interface models should be classified into either one of four categories:
+
+#### Base Models
+
+Base Models are models that can be accessed directly, and are not dependent on the relation of any models.
+
+The endpoints of a Base model will be a subset of the following:
+
+```
+[POST]   /model         // Creates a single model (Create)
+[GET]    /model         // Gets a list of models (Index)
+[GET]    /model/:id     // Gets a single model (Show)
+[PUT]    /model/:id     // Updates a single model (Update)
+[DELETE] /model/:id     // Deletes a single model (Delete)
+```
+
+Where `model` is the name of the model in plural form.
+
+For example, if we had an interface model for `users`, our urls would all start with `/users`.
+
+#### One-to-One Models
+
+One to one models are models(a) who exist only to be associated to another model(b), and the model(b) can only reference a single model(a).
+
+> These are synonymous to one-to-one models in a relational database system.  Most always if your database model is a one-to-one model, your interface model is also one-to-one.  Any deviation from this should be discussed with the team.
+
+The endpoints of a One-to-One model will be a subset of the following:
+
+```
+[POST]   /model/:id/nested-model     // Creates a single model (Create)
+[GET]    /model/:id/nested-model     // Gets a single model (Show)
+[PUT]    /model/:id/nested-model     // Updates a single model (Update)
+[DELETE] /model/:id/nested-model     // Deletes a single model (Delete)
+```
+
+Where `model` is the name of model(b) in plural form, and `nested-model` is the name of model(a) in plural form.
+
+For example, if we had an interface model for `people` and `dogs` (and we lived in a strange society where people could only have one dog and all dogs had exactly one owner) our urls would all be `/people/{person-id}/dogs`.
+
+#### One-to-Many Models
+
+One to many models are models(a) that exist to be associated to another model(b), but model(b) can reference multiple models(a).
+
+> These are synonymous to one-to-many models in a relational database system.  Most always if your database model is a one-to-many model, your interface model is also one-to-many.  Any deviation from this should be discussed with the team.
+
+The endpoints of a One-to-Many model will be a subset of the following:
+
+```
+[POST]   /model/:id/nested-model                      // Creates a single model (Create)
+[GET]    /model/:id/nested-model                      // Gets a list of models (Index)
+[GET]    /model/:id/nested-model/:nested-model-id     // Gets a single model (Show)
+[PUT]    /model/:id/nested-model/:nested-model-id     // Updates a single model (Update)
+[DELETE] /model/:id/nested-model/:nested-model-id     // Deletes a single model (Delete)
+```
+
+Where `model` is the name of model(b) in plural form, and `nested-model` is the name of model(a) in plural form.
+
+For example, if we had an interface model for `people` and `dogs` (and we lived in a more normal society where people can have multiple dogs, but dogs could still only have one owner) our urls would all start with `/people/{person-id}/dogs`.
+
+#### Many-to-Many Models
+
+Many to many models are models who are responsible for associating two other models (model(a) to model(b)). These models can contain additional information about the association, but that is optional.
+
+> These are synonymous to many-to-many models in a relational database system.  Most always if your database model is a many-to-many model, your interface model should also be many-to-many.  Any deviation from this should be discussed with the team.
+
+The endpoints of a Many-to-Many model will be a subset of the following:
+
+```
+[POST]   /model/:id/nested-model/:nested-model-id     // Creates a single model (Create)
+[GET]    /model/:id/nested-model                      // Gets a list of models (Index)
+[GET]    /model/:id/nested-model/:nested-model-id     // Gets a single model (Show)
+[PUT]    /model/:id/nested-model/:nested-model-id     // Updates a single model (Update)
+[DELETE] /model/:id/nested-model/:nested-model-id     // Deletes a single model (Delete)
+```
+
+Where `model` is the name of model(b) in plural form, and `nested-model` is the name of model(a) in plural form.  Model(a) and model(b) can be switched around in this case, so try to pick the one that makes the most sense for your application.
+
+For example, if we had an interface model for `people` and `dogs` (and we lived in a world where people can have multiple dogs, and dogs can have multiple owners) our urls could either all start with `/people/{person-id}/dogs` or `/dogs/{dog-id}/people`, depending on which made the most sense in your application.
+
 ## Spec Out RESTful Methods
 
 Spec'ing out RESTful methods early will also make development easier for both the API + client side teams.
