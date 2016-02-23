@@ -11,9 +11,10 @@ We have created this document to outline both the development lifecycle and the 
 ### The Process
 1. [Discovery](#discovery) - Understanding the requirements
 2. Sketch out your [Models](#models)
-3. Create an [Endpoint Spec](#spec-out-restful-methods)
-4. Define on an [Order of Implementation](#order-of-implementation)
-5. Build it
+3. Determine your [Interface Model Types](#determine-interface-model-types)
+4. Create an [Endpoint Spec](#spec-out-restful-methods)
+5. Define on an [Order of Implementation](#order-of-implementation)
+6. Build it
 
 ### Best Practices
 - [Base Interface](#base-interface)
