@@ -145,7 +145,7 @@ For example, if we had an interface model for `people` and `dogs` (and we lived 
 
 ## Spec Out RESTful Methods
 
-> These methods are really have already been already decided by work done in the [previous section](#determine-interface-model-types), but here we get to decide which "subsets" of endpoints to add for each model.  We also get to specify further information (like parameters) with help us further understand the API.
+> These methods have really been decided by work done in the [previous section](#determine-interface-model-types), but here we get to decide which "subsets" of endpoints to add for each model.  We also get to specify further information (like parameters) with help us further understand the API.
 
 Spec'ing out RESTful methods early will also make development easier for both the API + client side teams.
 
