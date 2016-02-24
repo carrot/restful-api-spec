@@ -73,11 +73,11 @@ Base Models are models that can be accessed directly, and are not dependent on t
 The endpoints of a Base model will be a subset of the following:
 
 ```
-[POST]   /model         // Creates a single model (Create)
-[GET]    /model         // Gets a list of models (Index)
-[GET]    /model/:id     // Gets a single model (Show)
-[PUT]    /model/:id     // Updates a single model (Update)
-[DELETE] /model/:id     // Deletes a single model (Delete)
+[POST]   /model         // Creates a single record (Create)
+[GET]    /model         // Gets a list of records (Index)
+[GET]    /model/:id     // Gets a single record (Show)
+[PUT]    /model/:id     // Updates a single record (Update)
+[DELETE] /model/:id     // Deletes a single record (Delete)
 ```
 
 Where `model` is the name of the model in plural form.
@@ -93,10 +93,10 @@ One to one models are models(a) who exist only to be associated to another model
 The endpoints of a One-to-One model will be a subset of the following:
 
 ```
-[POST]   /model/:id/nested-model     // Creates a single model (Create)
-[GET]    /model/:id/nested-model     // Gets a single model (Show)
-[PUT]    /model/:id/nested-model     // Updates a single model (Update)
-[DELETE] /model/:id/nested-model     // Deletes a single model (Delete)
+[POST]   /model/:id/nested-model     // Creates a single record (Create)
+[GET]    /model/:id/nested-model     // Gets a single record (Show)
+[PUT]    /model/:id/nested-model     // Updates a single record (Update)
+[DELETE] /model/:id/nested-model     // Deletes a single record (Delete)
 ```
 
 Where `model` is the name of model(b) in plural form, and `nested-model` is the name of model(a) in plural form.
@@ -112,11 +112,11 @@ One to many models are models(a) that exist to be associated to another model(b)
 The endpoints of a One-to-Many model will be a subset of the following:
 
 ```
-[POST]   /model/:id/nested-model                      // Creates a single model (Create)
-[GET]    /model/:id/nested-model                      // Gets a list of models (Index)
-[GET]    /model/:id/nested-model/:nested-model-id     // Gets a single model (Show)
-[PUT]    /model/:id/nested-model/:nested-model-id     // Updates a single model (Update)
-[DELETE] /model/:id/nested-model/:nested-model-id     // Deletes a single model (Delete)
+[POST]   /model/:id/nested-model                      // Creates a single record (Create)
+[GET]    /model/:id/nested-model                      // Gets a list of records (Index)
+[GET]    /model/:id/nested-model/:nested-model-id     // Gets a single record (Show)
+[PUT]    /model/:id/nested-model/:nested-model-id     // Updates a single record (Update)
+[DELETE] /model/:id/nested-model/:nested-model-id     // Deletes a single record (Delete)
 ```
 
 Where `model` is the name of model(b) in plural form, and `nested-model` is the name of model(a) in plural form.
@@ -132,11 +132,11 @@ Many to many models are models who are responsible for associating two other mod
 The endpoints of a Many-to-Many model will be a subset of the following:
 
 ```
-[POST]   /model/:id/nested-model/:nested-model-id     // Creates a single model (Create)
-[GET]    /model/:id/nested-model                      // Gets a list of models (Index)
-[GET]    /model/:id/nested-model/:nested-model-id     // Gets a single model (Show)
-[PUT]    /model/:id/nested-model/:nested-model-id     // Updates a single model (Update)
-[DELETE] /model/:id/nested-model/:nested-model-id     // Deletes a single model (Delete)
+[POST]   /model/:id/nested-model/:nested-model-id     // Creates a single record (Create)
+[GET]    /model/:id/nested-model                      // Gets a list of records (Index)
+[GET]    /model/:id/nested-model/:nested-model-id     // Gets a single record (Show)
+[PUT]    /model/:id/nested-model/:nested-model-id     // Updates a single record (Update)
+[DELETE] /model/:id/nested-model/:nested-model-id     // Deletes a single record (Delete)
 ```
 
 Where `model` is the name of model(b) in plural form, and `nested-model` is the name of model(a) in plural form.  Model(a) and model(b) can be switched around in this case, so try to pick the one that makes the most sense for your application.
