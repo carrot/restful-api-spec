@@ -6,7 +6,7 @@ In the development of a project, an API is often the first code that gets writte
 
 We have created this document to outline both the development lifecycle and the standards we try to adhere to at Carrot when building a RESTful API.
 
-## Sections & Summary
+# Sections & Summary
 
 ### The Process
 1. [Discovery](#discovery) - Understanding the requirements
@@ -23,6 +23,13 @@ We have created this document to outline both the development lifecycle and the 
 - [Pagination](#pagination)
 - [API Versioning](#api-versioning)
 - [Handling Errors](#handling-errors)
+
+### Implementations
+
+- [Burrow](#burrow)
+- [Carrot API Client Base](#carrot-api-client-base)
+
+# The Process
 
 ## Discovery
 
@@ -211,6 +218,8 @@ curl \
 
 If you take this approach, it's very useful because at the same time you're building out the spec, you're also building out a very simple client you can use to test the API with.
 
+# Best Practices
+
 ## Base Interface
 
 The base interface of an API is usually a small decision with big implications to usability and efficiency.
@@ -353,6 +362,20 @@ Use appropriate [HTTP Status Codes](http://www.w3.org/Protocols/rfc2616/rfc2616-
 
 Actually throw the HTTP error appropriately and also stuff it into the `status_code` field in the base interface.
 
-## License
+# Implementations
+
+## Burrow
+
+> https://github.com/carrot/burrow
+
+Burrow is Go specific implementation of this spec to build out APIs.
+
+## Carrot API Client Base
+
+> https://github.com/carrot/carrot-api-client-base
+
+Carrot API Client Base is a scaffolding project built on top of axios that helps rapidly build promise based API clients that follow this spec.
+
+# License
 
 [MIT](/LICENSE.md)
