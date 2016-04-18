@@ -374,7 +374,7 @@ Burrow is Go specific implementation of this spec to build out APIs.
 
 > https://github.com/carrot/carrot-api-client-base
 
-Carrot API Client Base is a scaffolding project built on top of axios that helps rapidly build promise based API clients that follow this spec.
+Carrot API Client Base is a scaffolding project built on top of rest.js that helps rapidly build promise based API clients that follow this spec.
 
 # License
 
